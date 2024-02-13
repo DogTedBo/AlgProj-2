@@ -1,8 +1,10 @@
 # quick_sort.py
 
 class QuickSort:
-    @staticmethod
-    def sort(arr):
+    def __init__(self, arr):
+        self.arr = arr
+        
+    def sort(self):  # Corrected method signature
         def partition(arr, low, high):
             i = low - 1
             pivot = arr[high]
@@ -22,4 +24,4 @@ class QuickSort:
                 quick_sort(arr, low, pi - 1)
                 quick_sort(arr, pi + 1, high)
 
-        quick_sort(arr, 0, len(arr) - 1)
+        quick_sort(self.arr, 0, len(self.arr) - 1)  # Access the array using self

@@ -4,7 +4,6 @@ import time
 import random
 
 
-
 class BubbleSort:
     def __init__(self, arr):
         self.arr = arr
