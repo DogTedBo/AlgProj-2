@@ -1,74 +1,19 @@
 import os 
 import sys
 import time
-import random
 from BubbleSort import BubbleSort
 from array_generator import ArrayGenerator
-from MergeSort import MergeSort
-from QuickSort import QuickSort
 
 class UI:
-
-    def bubble_sort_test():
-        print("Case Scenarios for Bubble Sort")
-        print("---------------")
-        print("1. Best Case")
-        print("2. Average Case")
-        print("3. Worst Case")
-        print("4. Exit bubble sort test")
-
-        while True:
-            case_choice = input("Select the case (1-4): ")
-            if case_choice == "1":
-                 # Best case scenario
-                print("Best case scenario")
-                size = int(input("Enter the size of the array: "))
-                arr = ArrayGenerator.generate_sorted_array(size)  # Use ArrayGenerator to generate sorted array
-                bubble_sort_instance = BubbleSort(arr)  # Pass array as parameter to the constructor
-                start_time = time.perf_counter()
-                bubble_sort_instance.sort()
-                end_time = time.perf_counter()
-                elapsed_time_ms = (end_time - start_time) * 1000
-                print(f"For N = {len(arr)}, it takes {elapsed_time_ms:.4f} milliseconds")
-            elif case_choice == "2":
-                # Average case scenario
-                print("Average case scenario")
-                size = int(input("Enter the size of the array: "))
-                arr = ArrayGenerator.generate_random_array(size)  # Use ArrayGenerator to generate random array
-                bubble_sort_instance = BubbleSort(arr)  # Pass array as parameter to the constructor
-                start_time = time.perf_counter()
-                bubble_sort_instance.sort()
-                end_time = time.perf_counter()
-                elapsed_time_ms = (end_time - start_time) * 1000
-                print(f"For N = {len(arr)}, it takes {elapsed_time_ms:.4f} milliseconds")
-            elif case_choice == "3":
-                # Worst case scenario
-                print("Worst case scenario")
-                size = int(input("Enter the size of the array: "))
-                arr = ArrayGenerator.generate_reverse_sorted_array(size)  # Use ArrayGenerator to generate reverse sorted array
-                bubble_sort_instance = BubbleSort(arr)  # Pass array as parameter to the constructor
-                start_time = time.perf_counter()    
-                bubble_sort_instance.sort()
-                end_time = time.perf_counter()
-                elapsed_time_ms = (end_time - start_time) * 1000
-                print(f"For N = {len(arr)}, it takes {elapsed_time_ms:.4f} milliseconds")
-            elif case_choice == "4":
-                break
-
- #test for merge sort
-
-
-def main():
-    print("Select the sorting algorithm you want to test.")
-    print("-------------------------")
-    print("1. Bubble Sort")
-    print("2. Merge Sort")
-    print("3. Quick Sort")
-    print("4. Heap Sort")
-    print("5. Exit")
-
-    while True:
-        choice = input("Select the sorting algorithm (1 - 5): ")
+    def print_menu():
+        print("\033[43m\033[30mWelcome to Sorting Algorithm Tester\033[0m")
+        print("\033[1m\033[95mMain Menu\033[0m")
+        print("\033[32m1. Bubble Sort\033[0m")
+        print("\033[34m2. Merge Sort\033[0m")
+        print("\033[36m3. Quick Sort\033[0m")
+        print("\033[31m4. Exit\033[0m")
+        
+        choice = input("\033[1mEnter your choice (1-4):\033[0m ")
         if choice == "1":
             UI.bubble_sort_test()
         elif choice == "2":
@@ -76,16 +21,69 @@ def main():
         elif choice == "3":
             UI.quick_sort_test()
         elif choice == "4":
-            UI.heap_sort_test()
-        elif choice == "5":
-            break
+            print("\033[1m\033[95mGoodbye!\033[0m")
+            sys.exit()
         else:
-            print("Invalid input. Please try again.")
-     
+            print("\033[91mInvalid input\033[0m")
+            UI.print_menu()
+
+
+
+    
+    def bubble_sort_test():
+        print("\033[1m\033[95mCase Scenarios for Bubble Sort\033[0m")
+        print("---------------")
+        print("\033[94m1. Best Case\033[0m")
+        print("\033[94m2. Average Case\033[0m")
+        print("\033[94m3. Worst Case\033[0m")
+        print("\033[94m4. Exit bubble sort test\033[0m")
+        
+        while True:
+            case_choice = input("\033[1mSelect the case (1-4):\033[0m ")
+            if case_choice == "1":
+                print("Best case scenario")
+                # Best case scenario
+                size = int(input("\033[1mEnter the size of the array:\033[0m "))
+                arr = ArrayGenerator.generate_sorted_array(size)
+                bubble_sort_instance = BubbleSort(arr)
+                start_time = time.perf_counter()
+                bubble_sort_instance.sort()
+                end_time = time.perf_counter()
+                elapsed_time_ms = (end_time - start_time) * 1000
+                print(f"For N = {len(arr)}, it takes {elapsed_time_ms:.4f} milliseconds")
+                UI.bubble_sort_test()
+            elif case_choice == "2":
+                print("Average case scenario")
+                # Average case scenario
+                size = int(input("\033[1mEnter the size of the array:\033[0m "))
+                arr = ArrayGenerator.generate_random_array(size)
+                bubble_sort_instance = BubbleSort(arr)
+                start_time = time.perf_counter()
+                bubble_sort_instance.sort()
+                end_time = time.perf_counter()
+                elapsed_time_ms = (end_time - start_time) * 1000
+                print(f"For N = {len(arr)}, it takes {elapsed_time_ms:.4f} milliseconds")
+                UI.bubble_sort_test()
+            elif case_choice == "3":
+                # Worst case scenario
+                print("Worst case scenario")
+                size = int(input("\033[1mEnter the size of the array:\033[0m "))
+                arr = ArrayGenerator.generate_reverse_sorted_array(size)
+                bubble_sort_instance = BubbleSort(arr)
+                start_time = time.perf_counter()
+                bubble_sort_instance.sort()
+                end_time = time.perf_counter()
+                elapsed_time_ms = (end_time - start_time) * 1000
+                print(f"For N = {len(arr)}, it takes {elapsed_time_ms:.4f} milliseconds")
+                UI.bubble_sort_test()
+            elif case_choice == "4":
+                # go to main menu
+                UI.print_menu()
+            else:
+                print("\033[91mInvalid input\033[0m")
 
 if __name__ == "__main__":
-    main()
+    UI.print_menu()
+    
     
 
-
-   
