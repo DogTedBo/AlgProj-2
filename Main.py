@@ -4,6 +4,7 @@ import time
 from BubbleSort import BubbleSort
 from MergeSort import MergeSort
 from QuickSort import QuickSort
+# from HeapSort import HeapSort
 
 from array_generator import ArrayGenerator
 
@@ -14,9 +15,10 @@ class UI:
         print("\033[32m1. Bubble Sort\033[0m")
         print("\033[34m2. Merge Sort\033[0m")
         print("\033[36m3. Quick Sort\033[0m")
+        print("\033[35m4. Heap Sort\033[0m")
         print("\033[31m4. Exit\033[0m")
         
-        choice = input("\033[1mEnter your choice (1-4):\033[0m ")
+        choice = input("\033[1mEnter your choice (1-5):\033[0m ")
         if choice == "1":
             UI.bubble_sort_test()
         elif choice == "2":
@@ -24,6 +26,8 @@ class UI:
         elif choice == "3":
             UI.quick_sort_test()
         elif choice == "4":
+            UI.heap_sort_test()
+        elif choice == "5":
             print("\033[1m\033[95mGoodbye!\033[0m")
             sys.exit()
         else:
@@ -186,6 +190,9 @@ class UI:
                 UI.print_menu() 
             else:
                 print("\033[91mInvalid input\033[0m")
+
+    def heap_sort_test():
+        print("test")
 
 
 if __name__ == "__main__":
