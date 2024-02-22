@@ -16,7 +16,7 @@ class UI:
         print("\033[34m2. Merge Sort\033[0m")
         print("\033[36m3. Quick Sort\033[0m")
         print("\033[35m4. Heap Sort\033[0m")
-        print("\033[31m4. Exit\033[0m")
+        print("\033[31m5. Exit\033[0m")
         
         choice = input("\033[1mEnter your choice (1-5):\033[0m ")
         if choice == "1":
