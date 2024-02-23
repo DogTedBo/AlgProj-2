@@ -1,12 +1,13 @@
-import os 
+import os
 import sys
 import time
-from BubbleSort import BubbleSort
-from MergeSort import MergeSort
-from QuickSort import QuickSort
-# from HeapSort import HeapSort
 
 from array_generator import ArrayGenerator
+from BubbleSort import BubbleSort
+from HeapSort import HeapSort
+from MergeSort import MergeSort
+from QuickSort import QuickSort
+
 
 class UI:
     def print_menu():
@@ -192,7 +193,50 @@ class UI:
                 print("\033[91mInvalid input\033[0m")
 
     def heap_sort_test():
-        print("test")
+        print("\033[1m\033[95mCase Scenarios for Heap Sort\033[0m")
+        print("---------------")
+        print("\033[94m1. Best Case\033[0m")
+        print("\033[94m2. Average Case\033[0m")
+        print("\033[94m3. Worst Case\033[0m")
+        print("\033[94m4. Exit heap sort test\033[0m")
+
+        while True:
+            case_choice = input("\033[1mSelect the case (1-4):\033[0m ")
+            if case_choice == "1":
+                print("Best case scenario")
+                # Best case scenario
+                size = int(input("\033[1mEnter the size of the array:\033[0m "))
+                arr = ArrayGenerator.generate_sorted_array(size)
+                heap_sort_instance = HeapSort(arr)
+                start_time = time.perf_counter()
+                heap_sort_instance.sort()
+                end_time = time.perf_counter()
+                elapsed_time_ms = (end_time - start_time) * 1000
+                print(f"For N = {len(arr)}, it takes {elapsed_time_ms:.4f} milliseconds")
+                UI.heap_sort_test()
+            elif case_choice == "2":
+                print("Average case scenario")
+                # Average case scenario
+                size = int(input("\033[1mEnter the size of the array:\033[0m "))
+                arr = ArrayGenerator.generate_random_array(size)
+                heap_sort_instance = HeapSort(arr)
+                start_time = time.perf_counter()
+                heap_sort_instance.sort()
+                end_time = time.perf_counter()
+                elapsed_time_ms = (end_time - start_time) * 1000
+                print(f"For N = {len(arr)}, it takes {elapsed_time_ms:.4f} milliseconds")
+                UI.heap_sort_test()
+            elif case_choice == "3":
+                # Worst case scenario
+                print("Worst case scenario")
+                size = int(input("\033[1mEnter the size of the array:\033[0m "))
+                arr = ArrayGenerator.generate_reverse_sorted_array(size)
+                heap_sort_instance = HeapSort(arr)
+                start_time = time.perf_counter()
+                heap_sort_instance.sort()
+                end_time = time.perf_counter()
+                elapsed_time_ms = (end_time - start_time) * 1000
+                print(f"For N = {len(arr)}, it takes {elapsed_time_ms:.4f} milliseconds")
 
 
 if __name__ == "__main__":
