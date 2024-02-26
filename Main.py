@@ -237,7 +237,14 @@ class UI:
                 end_time = time.perf_counter()
                 elapsed_time_ms = (end_time - start_time) * 1000
                 print(f"For N = {len(arr)}, it takes {elapsed_time_ms:.4f} milliseconds")
-
+            elif case_choice == "4":
+                # go to main menu
+                UI.print_menu()
+            else:
+                print("\033[91mInvalid input\033[0m")    
+            
+                
+                
 
 if __name__ == "__main__":
     UI.print_menu()
