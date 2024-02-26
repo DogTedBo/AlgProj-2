@@ -1,26 +1,30 @@
-# merge_sort.py
+# Purpose: Merge Sort algorithm implementation
+import os
+import sys
+import time
+import random
 
-class MergeSort:
-    def __init__(self, arr):
-        self.arr = arr
+class MergeSort: # Class to implement merge sort
+    def __init__(self, arr): # Constructor to initialize the array    
+        self.arr = arr # Initialize the array
         
-    def sort(self):  # Corrected method signature
-        arr = self.arr  # Access the array using self
-        if len(arr) > 1:
-            mid = len(arr)//2
-            L = arr[:mid]
-            R = arr[mid:]
+    def sort(self):  # Method to sort the array
+        arr = self.arr  
+        if len(arr) > 1: 
+            mid = len(arr)//2 
+            L = arr[:mid] 
+            R = arr[mid:] 
 
             # Recursively sort both halves
-            self.arr = L
-            self.sort()
-            self.arr = R
-            self.sort()
+            self.arr = L 
+            self.sort() 
+            self.arr = R 
+            self.sort() 
 
-            i = j = k = 0
+            i = j = k = 0 # Initialize the index variables
 
             # Merge the sorted halves
-            while i < len(L) and j < len(R):
+            while i < len(L) and j < len(R): 
                 if L[i] < R[j]:
                     arr[k] = L[i]
                     i += 1
@@ -34,7 +38,7 @@ class MergeSort:
                 arr[k] = L[i]
                 i += 1
                 k += 1
-
+            # Check if any elements are right
             while j < len(R):
                 arr[k] = R[j]
                 j += 1

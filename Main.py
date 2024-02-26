@@ -9,8 +9,9 @@ from MergeSort import MergeSort
 from QuickSort import QuickSort
 
 
-class UI:
-    def print_menu():
+# Purpose: Implement the UI for the sorting algorithm tester
+class UI: 
+    def print_menu(): # Method to print the main menu
         print("\033[43m\033[30mWelcome to Sorting Algorithm Tester\033[0m")
         print("\033[1m\033[95mMain Menu\033[0m")
         print("\033[32m1. Bubble Sort\033[0m")
@@ -35,7 +36,7 @@ class UI:
             print("\033[91mInvalid input\033[0m")
             UI.print_menu()
  
-    def bubble_sort_test():
+    def bubble_sort_test(): # Method to test the bubble sort algorithm
         print("\033[1m\033[95mCase Scenarios for Bubble Sort\033[0m")
         print("---------------")
         print("\033[94m1. Best Case\033[0m")
@@ -88,7 +89,7 @@ class UI:
                 print("\033[91mInvalid input\033[0m")
 
 
-    def merge_sort_test():
+    def merge_sort_test(): # Method to test the merge sort algorithm
         print("\033[1m\033[95mCase Scenarios for Merge Sort\033[0m")
         print("---------------")
         print("\033[94m1. Best Case\033[0m")
@@ -140,7 +141,7 @@ class UI:
             else:
                 print("\033[91mInvalid input\033[0m")
 
-    def quick_sort_test():
+    def quick_sort_test(): # Method to test the quick sort algorithm
         print("\033[1m\033[95mCase Scenarios for Quick Sort\033[0m")
         print("---------------")
         print("\033[94m1. Best Case\033[0m")
@@ -192,7 +193,7 @@ class UI:
             else:
                 print("\033[91mInvalid input\033[0m")
 
-    def heap_sort_test():
+    def heap_sort_test(): # Method to test the heap sort algorithm
         print("\033[1m\033[95mCase Scenarios for Heap Sort\033[0m")
         print("---------------")
         print("\033[94m1. Best Case\033[0m")
@@ -245,7 +246,7 @@ class UI:
             
                 
                 
-
+# Main
 if __name__ == "__main__":
     UI.print_menu()
     
